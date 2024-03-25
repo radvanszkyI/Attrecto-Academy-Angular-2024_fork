@@ -4,6 +4,7 @@
         <div class="mb-3">
             <label class="form-label">
                 Name
+                <!--mitől függ hogy csak ez indul el hol validáódik-->
                 @if(userCrateForm | isControlRequired:'name'){
                     <span>*</span>
                 }
@@ -17,8 +18,9 @@
         <div class="mb-3">
             <label>
                 Image
+                <!--ha létrejön a form MAJD(/ÉS) image control required -->
                 @if(userCrateForm | isControlRequired:'image'){
-                    <span>*</span>
+                    <span>*</span><!--nem validitás alapján, csak hogy van e rajta validáció-->
                 }
             </label>
 
@@ -27,7 +29,10 @@
             </div>
         </div>
         <div class="mb-3">
-            <button class="btn btn-primary" [disabled]="userCrateForm.invalid">
+                           <!--legyen disabled a gomb ha invalid Form bármely eleme-->
+            <button class="btn btn-primary" 
+                    (click)="saveForm()" 
+                    [disabled]="userCrateForm.invalid">
                 Save
             </button>
 

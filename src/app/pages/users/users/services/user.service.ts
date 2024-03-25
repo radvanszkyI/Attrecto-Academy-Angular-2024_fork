@@ -19,4 +19,14 @@ export class UserService {
   getUser(userId:number):Observable<User>{
     return this.http.get<User>(`${environment.apiUrl}/users/${userId}`)
   }
+  createUser(user:User){
+    return this.http.post(`${environment.apiUrl}/users/`,user)
+  }
+  updateUsers(id:number,user:User){
+    return this.http.put(`${environment.apiUrl}/users/${id}`,user)
+  }
+
+  deleteUsers(id:number){
+    return this.http.delete(`${environment.apiUrl}/users/${id}`)
+  }
 }

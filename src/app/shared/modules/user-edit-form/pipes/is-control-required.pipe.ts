@@ -7,7 +7,10 @@ import {FormGroup, Validators} from "@angular/forms";
 })
 
 export class IsControlRequiredPipe implements  PipeTransform {
+    // megkapja a formGroup-ot az előző pipe-ból
+    //         +a value-t, ami egy plusz input 
     transform(fromGroup:FormGroup, value:string): boolean {
+        //megnézük hogy 
         return fromGroup.get(value).hasValidator(Validators.required)
     }
 }

@@ -1,0 +1,39 @@
+<div class="container my-4">
+    Form
+    <form [formGroup]="badgeCrateForm" class="p-3">
+        <div class="mb-3">
+            <label class="form-label">
+                Name
+                <!--mitől függ hogy csak ez indul el hol validáódik-->
+                @if(badgeCrateForm | isControlRequired:'name'){
+                <span>*</span>
+                }
+            </label>
+
+            <div>
+                <input class="form-control" formControlName="name" name="name">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>
+                Image
+                <!--ha létrejön a form MAJD(/ÉS) image control required -->
+                @if(badgeCrateForm | isControlRequired:'image'){
+                <span>*</span><!--nem validitás alapján, csak hogy van e rajta validáció-->
+                }
+            </label>
+
+            <div>
+                <input class="form-control" formControlName="image" name="image">
+            </div>
+        </div>
+        <div class="mb-3">
+            <!--legyen disabled a gomb ha invalid Form bármely eleme-->
+            <button class="btn btn-primary" (click)="saveForm()" [disabled]="badgeCrateForm.invalid">
+                Save
+            </button>
+
+        </div>
+    </form>
+</div>

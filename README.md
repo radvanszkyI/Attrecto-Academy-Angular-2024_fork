@@ -1,5 +1,5 @@
 # sajnos nem tudtam megcsinálni az Extra házit
-## de a 6. ora alap házi feladat készen van
+## de a "6.ora-hf" branch-en elkészült az alapfeladat
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 

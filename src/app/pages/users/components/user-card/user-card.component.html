@@ -1,7 +1,12 @@
-<div class="card position-relative" >
+<div class="card position-relative">
   <button class="delete-btn btn btn-warning" (click)="deleteUser(user.id,$event)">
     X
   </button>
+  @if (user.badges.length) {
+  @for (badgeId of user.badges; track badgeId) {
+  <img class="badge-card-image" [src]="getBadgeImage(badgeId)" alt="badge-image">
+  }
+  }
   <div class="user-image">
     <img class="w-100" [src]="user.image" alt="user-avatar">
   </div>

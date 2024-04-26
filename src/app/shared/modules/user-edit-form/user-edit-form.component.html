@@ -6,7 +6,7 @@
                 Name
                 <!--mitől függ hogy csak ez indul el hol validáódik-->
                 @if(userCrateForm | isControlRequired:'name'){
-                    <span>*</span>
+                <span>*</span>
                 }
             </label>
 
@@ -20,7 +20,7 @@
                 Image
                 <!--ha létrejön a form MAJD(/ÉS) image control required -->
                 @if(userCrateForm | isControlRequired:'image'){
-                    <span>*</span><!--nem validitás alapján, csak hogy van e rajta validáció-->
+                <span>*</span><!--nem validitás alapján, csak hogy van e rajta validáció-->
                 }
             </label>
 
@@ -29,10 +29,20 @@
             </div>
         </div>
         <div class="mb-3">
-                           <!--legyen disabled a gomb ha invalid Form bármely eleme-->
-            <button class="btn btn-primary" 
-                    (click)="saveForm()" 
-                    [disabled]="userCrateForm.invalid">
+            <label>
+                Badges
+                @if(userCrateForm | isControlRequired:'badges'){
+                <span>*</span>
+                }
+            </label>
+
+            <div>
+                <input class="form-control" formControlName="badges" name="badges">
+            </div>
+        </div>
+        <div class="mb-3">
+            <!--legyen disabled a gomb ha invalid Form bármely eleme-->
+            <button class="btn btn-primary" (click)="saveForm()" [disabled]="userCrateForm.invalid">
                 Save
             </button>
 

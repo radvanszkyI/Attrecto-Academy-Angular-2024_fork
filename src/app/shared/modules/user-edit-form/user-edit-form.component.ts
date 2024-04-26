@@ -1,21 +1,19 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../../pages/users/classes/User";
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/pages/users/users/services/user.service';
-import { Route, Router } from '@angular/router';
-import { tick } from '@angular/core/testing';
+import { User } from "../../../pages/users/classes/User";
 
 @Component({
   selector: 'app-user-edit-form',
   templateUrl: './user-edit-form.component.html',
   styleUrl: './user-edit-form.component.scss'
 })
-export class UserEditFormComponent implements OnInit{
-  @Input() user:User
+export class UserEditFormComponent implements OnInit {
+  @Input() user: User
 
   userCrateForm: FormGroup
-
-  constructor(private userService:UserService,private router:Router){
+  constructor(private userService: UserService, private router: Router) {
 
   }
 
@@ -27,24 +25,29 @@ export class UserEditFormComponent implements OnInit{
     this.userCrateForm = new FormGroup({
       //létrehozunk egy FormControl-t (controlNeve, validátorTömb)
       //  ha már van user(only edit) -> name atr= a neve KÜLÖNBEN üres
-      name: new FormControl(this.user ? this.user.name :'', [Validators.required, Validators.minLength(3)],),
-      image: new FormControl(this.user ? this.user.image : '',[Validators.required])
+      name: new FormControl(this.user ? this.user.name : '', [Validators.required, Validators.minLength(3)],),
+      image: new FormControl(this.user ? this.user.image : '', [Validators.required]),
+      badges: new FormControl(this.user ? this.user.badges : '', [Validators.required])
     })
   }
 
-  saveForm(){
-    const userFormData: User=this.userCrateForm.getRawValue()
+  saveForm() {
+    const userFormData: User = this.userCrateForm.getRawValue()
+    this.user.badges = this.userCrateForm.getRawValue().badges.split(",")
+    this.user.id = userFormData.id
+    this.user.name = userFormData.name
+    this.user.image = userFormData.image
 
-    if(this.user){
-      this.userService.updateUsers(this.user.id,userFormData).subscribe({
-        next:() => {//akor hivodik meg ha sikerült létrehozni a szerveroldalon
-            this.router.navigate(['users'])
+    if (this.user) {
+      this.userService.updateUsers(this.user.id, this.user).subscribe({
+        next: () => {//akor hivodik meg ha sikerült létrehozni a szerveroldalon
+          this.router.navigate(['users'])
         },
       })
-    }else{
-      this.userService.createUser(userFormData).subscribe({
-        next:() => {//akor hivodik meg ha sikerült létrehozni a szerveroldalon
-            this.router.navigate(['users'])
+    } else {
+      this.userService.createUser(this.user).subscribe({
+        next: () => {//akor hivodik meg ha sikerült létrehozni a szerveroldalon
+          this.router.navigate(['users'])
         },
       })
     }

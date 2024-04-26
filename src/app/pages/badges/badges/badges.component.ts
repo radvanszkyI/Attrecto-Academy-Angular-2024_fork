@@ -26,6 +26,7 @@ export class BadgesComponent implements OnInit {
       }
     })
   }
+
   navigateToCreateBadge() {
     this.router.navigate(['badge-create']);
   }

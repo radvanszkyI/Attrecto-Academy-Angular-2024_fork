@@ -1,7 +1,7 @@
-## sajnos nem tudtam megcsinálni az extra házit
-de a 6. ora hf készen van
+# sajnos nem tudtam megcsinálni az Extra házit
+## de a 6. ora hf készen van
 
-
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 

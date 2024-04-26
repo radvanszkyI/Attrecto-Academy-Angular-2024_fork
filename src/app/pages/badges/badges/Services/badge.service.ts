@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Badge } from '../classes/Badge';
+import { Badge } from '../../classes/Badge';
 
 @Injectable({
   providedIn: 'root'
@@ -22,11 +22,11 @@ export class BadgeService {
   createBadge(badge: Badge) {
     return this.httpClient.post(`${environment.apiUrl}/badges/`, badge)
   }
-  updateBadges(id: number, badge: Badge) {
+  updateBadge(id: number, badge: Badge) {
     return this.httpClient.put(`${environment.apiUrl}/badges/${id}`, badge)
   }
 
-  deleteBadges(id: number) {
+  deleteBadge(id: number) {
     return this.httpClient.delete(`${environment.apiUrl}/badges/${id}`)
   }
 } 

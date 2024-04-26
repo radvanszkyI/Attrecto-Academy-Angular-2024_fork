@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {UserEditFormComponent} from "./user-edit-form.component";
-import {IsControlRequiredPipe} from "./pipes/is-control-required.pipe";
-import {ReactiveFormsModule} from "@angular/forms";
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from "@angular/forms";
+import { IsControlRequiredPipe } from './pipes/is-control-required.pipe';
+import { UserEditFormComponent } from "./user-edit-form.component";
 
 
 

@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Badge } from '../../classes/Badge';
+import { User } from '../../classes/User';
 
 @Component({
-  selector: 'app-badge-card',
-  templateUrl: './badge-card.component.html',
-  styleUrl: './badge-card.component.scss'
+  selector: 'app-user-card',
+  templateUrl: './user-card.component.html',
+  styleUrl: './user-card.component.scss'
 })
-export class BadgeCardComponent {
-  @Input() badge: Badge
+export class UserCardComponent {
+  @Input() user: User;
 
   @Output() deleteClicked = new EventEmitter<number>//jelezni a parent komponensnek h valmi tortént
   // ezzel oldjuk meg hogyha a card-on belül az x-re kattintunk, akkor arról egy külön event jöjjön létre

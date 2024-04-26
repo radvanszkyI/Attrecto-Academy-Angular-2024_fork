@@ -1,7 +1,13 @@
 .badge-card {
-    border-radius: 50px;
-  }
-  
-  .badge-card-image {
-    width: 100px;
-  }
+  border-radius: 50px;
+}
+
+.badge-card-image {
+  width: 100px;
+}
+
+.delete-btn {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+}

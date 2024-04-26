@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
-import { BadgeService } from 'src/app/pages/badges/Services/badge.service';
+import { BadgeService } from 'src/app/pages/badges/badges/Services/badge.service';
 import { Badge } from 'src/app/pages/badges/classes/Badge';
 
 @Component({
@@ -35,7 +35,7 @@ export class BadgeEditFormComponent implements OnInit {
     const badgeFormData: Badge = this.badgeCrateForm.getRawValue()
 
     if (this.badge) {
-      this.badgeService.updateBadges(this.badge.id, badgeFormData).subscribe({
+      this.badgeService.updateBadge(this.badge.id, badgeFormData).subscribe({
         next: () => {//akor hivodik meg ha sikerült létrehozni a szerveroldalon
           this.router.navigate(['badges'])
         },

@@ -1,3 +1,25 @@
+## sajnos nem tudtam megcsinálni az extra házit
+de a 6. ora hf készen van
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # AngularAcademy2023
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.1.
